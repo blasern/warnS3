@@ -1,0 +1,15 @@
+warnS3 is intended to give warnings when loading packages that overload
+S3 methods. Currently it offers the functions
+
+-   `warnS3Methods` Give a warning for masked S3 methods.
+-   `library2`, `require2` Same as base functions with additional
+    warning for S3 methods.
+
+Extensions are planned for `::`, `loadNamespace`, `get0`, `:::` and
+possibly other functions.
+
+warnS3 is not yet available on CRAN. You can download the latest
+development version from github with
+
+    ## install.packages("devtools")
+    devtools::install_github("blasern/warnS3")

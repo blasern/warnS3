@@ -1,0 +1,7 @@
+Package: warnS3
+Title: Warn Masked S3 Methods
+Version: 0.0.0.9000
+Authors@R: person("Nello", "Blaser", email = "nello.blaser@ispm.unibe.ch", role = c("aut", "cre"))
+Description: Gives warnings for masked S3 methods. Implements require2 and library2 functions that automatically return these warnings. 
+Depends: R (>= 3.2.0)
+License: GPL-2
