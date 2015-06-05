@@ -46,6 +46,7 @@ library2 <- function(package, help, pos = 2, lib.loc = NULL, character.only = FA
 }
   
 #' @rdname library2
+#' @export
 require2 <- function(package, lib.loc = NULL, quietly = FALSE,
                      warn.conflicts = TRUE,
                      character.only = FALSE){
