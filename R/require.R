@@ -32,15 +32,15 @@ library <- function(package, help, pos = 2, lib.loc = NULL, character.only = FAL
                      verbose = getOption("verbose")){
   if (!character.only) package <- as.character(substitute(package))
   loaded <- paste("package", package, sep = ":") %in% search()
-  value <- base::library(package = package, 
-                         help = help, 
-                         pos = pos, 
-                         lib.loc = lib.loc, 
-                         character.only = TRUE, 
-                         logical.return = logical.return, 
-                         warn.conflicts = warn.conflicts, 
-                         quietly = quietly, 
-                         verbose = verbose)
+  value <- getExportedValue("base", "library")(package = package, 
+                                               help = help, 
+                                               pos = pos, 
+                                               lib.loc = lib.loc, 
+                                               character.only = TRUE, 
+                                               logical.return = logical.return, 
+                                               warn.conflicts = warn.conflicts, 
+                                               quietly = quietly, 
+                                               verbose = verbose)
   if (warn.conflicts & !loaded) warnS3Methods(package)
   invisible(value)
 }
@@ -52,11 +52,11 @@ require <- function(package, lib.loc = NULL, quietly = FALSE,
                      character.only = FALSE){
   if (!character.only) package <- as.character(substitute(package))
   loaded <- paste("package", package, sep = ":") %in% search()
-  value <- base::require(package = package, 
-                         lib.loc = lib.loc, 
-                         quietly = quietly,
-                         warn.conflicts = warn.conflicts,
-                         character.only = TRUE)
+  value <- getExportedValue("base", "require")(package = package, 
+                                               lib.loc = lib.loc, 
+                                               quietly = quietly,
+                                               warn.conflicts = warn.conflicts,
+                                               character.only = TRUE)
   if (warn.conflicts & !loaded) warnS3Methods(package)
   invisible(value)
 }

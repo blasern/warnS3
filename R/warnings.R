@@ -13,11 +13,12 @@ warnS3Methods <- function(pkg = NULL){
   if (nrow(masked) == 0) return(NULL)
   masked_id <- unique(masked[masked[, "package"] %in% pkg, "id"])
   masked <- masked[masked[, "id"] %in% masked_id, ]
+  if (nrow(masked) == 0) return(NULL)
   # get used package
   masked[, "masking_package"] <- NA_character_
   for (id in masked_id){
     df <- masked[masked[, "id"] == id, ]
-    used_method <- getS3method(df[1, "method"], df[1, "class"])
+    used_method <- getS3method(df[1, "method"], df[1, "class"], optional = TRUE)
     used_package <- environmentName(environment(used_method))
     masked[masked[, "id"] == id, "masking_package"] <- used_package
   }
